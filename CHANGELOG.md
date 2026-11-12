@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.1.0
+
+### Features
+
+- Ascension Island (`AC`, `+247`) and Tristan da Cunha (`TA`, `+290`), with
+  names in all 22 languages and their flags. There are now 251 countries and
+  territories.
+- Numbers of territories that libphonenumber has no data for, namely
+  Antarctica, Bouvet Island, the French Southern Territories, Heard Island
+  and McDonald Islands, Pitcairn and South Georgia, are validated and
+  formatted by the numbering plan of their dial code, e.g. Norway for Bouvet
+  Island. Before, they were never valid. A pasted number keeps the selected
+  territory.
+- Updated `dlibphonenumber` to 1.1.76, with the latest numbering data for
+  regions such as Australia, Benin, China, Germany, India and Romania.
+
+### Fixes
+
+- Vatican City uses `+39` instead of `+379`.
+- Heard Island and McDonald Islands use `+672` instead of `+0`.
+- Saint Helena is named "Saint Helena", now that Ascension Island and Tristan
+  da Cunha are listed on their own, and has its own flag instead of the
+  British one.
+
 ## 1.0.0
 
 First release of `smart_phone_input`.

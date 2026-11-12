@@ -8,6 +8,8 @@ Try:
 
 - typing Arabic digits, such as `٠٥٩٩١٢٣٤٥٦`;
 - pasting an international number, such as `+966 50 123 4567`;
+- choosing Bouvet Island and typing a Norwegian number, such as
+  `41 23 45 67`;
 - switching the app to Arabic with the button in the app bar;
 - searching the country list in Arabic.
 

@@ -71,6 +71,21 @@ void main() {
       expect(Countries.byIsoCode('EH')?.dialCode, '+212');
     });
 
+    test('every dial code starts with a calling code', () {
+      expect(Countries.byIsoCode('VA')?.dialCode, '+39');
+      expect(Countries.byIsoCode('HM')?.dialCode, '+672');
+      expect(isoCodeOf('+39'), 'IT');
+      expect(isoCodeOf('+247'), 'AC');
+      expect(isoCodeOf('+290'), 'SH');
+      for (final country in Countries.all) {
+        expect(
+          Countries.byDialCode(country.dialCode),
+          isNotNull,
+          reason: '$country',
+        );
+      }
+    });
+
     test('returns null for unknown or non-geographic codes', () {
       expect(isoCodeOf(''), isNull);
       expect(isoCodeOf('+999'), isNull);

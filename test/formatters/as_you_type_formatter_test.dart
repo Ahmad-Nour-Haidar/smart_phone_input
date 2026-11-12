@@ -49,6 +49,12 @@ void main() {
       expect(format('2351234', 'AI'), '235-1234');
     });
 
+    test('formats territories without numbering data of their own by the '
+        'plan of their dial code', () {
+      expect(format('41234567', 'BV'), format('41234567', 'NO'));
+      expect(format('41234567', 'BV'), isNot('41234567'));
+    });
+
     test('keeps digits that cannot be formatted', () {
       expect(format('12', 'PS'), '12');
       expect(format('', 'PS'), '');

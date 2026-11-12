@@ -43,7 +43,7 @@ The screenshots come from the [example app](example/lib/main.dart).
 - **22 languages** for country names and texts, picked from the app's
   locale, with ways to override them or add your own.
 - **Form integration** with `validator`, `onSaved` and `autovalidateMode`.
-- **249 countries and territories**, with image or emoji flags.
+- **251 countries and territories**, with image or emoji flags.
 - **Pure Dart**, so it runs on every platform Flutter supports. It depends
   only on Flutter and `dlibphonenumber`.
 
@@ -163,7 +163,7 @@ Countries.byIsoCode('PS');    // Palestine
 Countries.byDialCode('+966'); // Saudi Arabia
 Countries.byDialCode('+1');   // United States, the main country of +1
 Countries.filter(['PS', 'LB']);
-Countries.all;                // all 249
+Countries.all;                // all 251
 
 final palestine = Countries.byIsoCode('PS')!;
 palestine.localizedName(const Locale('ar')); // فلسطين
@@ -283,6 +283,10 @@ await tester.tap(find.byKey(PhoneInputKeys.countryItem('PS')));
 - Some numbers are valid in several countries. libphonenumber reports all
   `+212` numbers as Moroccan, even those also valid in Western Sahara, so a
   pasted `+212…` number selects Morocco unless Western Sahara is selected.
+- libphonenumber has no numbering data for Antarctica, Bouvet Island, the
+  French Southern Territories, Heard Island and McDonald Islands, Pitcairn
+  and South Georgia. Their numbers are checked against the main country of
+  their dial code, e.g. Norway for Bouvet Island (`+47`).
 - Phone numbers are always written left to right, also in right-to-left
   layouts.
 

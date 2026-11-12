@@ -1,5 +1,6 @@
 import 'package:dlibphonenumber/dlibphonenumber.dart' as p;
 
+import '../models/countries.dart';
 import '../models/phone_number.dart';
 
 /// The calls this package makes to `dlibphonenumber`.
@@ -23,8 +24,8 @@ abstract final class PhoneNumberUtil {
     if (digits.isEmpty) {
       return null;
     }
-    return _validE164('$dialCode$digits', isoCode) ??
-        _validE164(digits, isoCode);
+    final region = _numberingRegion(isoCode);
+    return _validE164('$dialCode$digits', region) ?? _validE164(digits, region);
   }
 
   static String? _validE164(String text, String isoCode) {
@@ -40,7 +41,8 @@ abstract final class PhoneNumberUtil {
   /// both Morocco and Western Sahara.
   static bool isValidForRegion(String text, String isoCode) {
     final number = _parse(text, 'ZZ');
-    return number != null && _util.isValidNumberForRegion(number, isoCode);
+    return number != null &&
+        _util.isValidNumberForRegion(number, _numberingRegion(isoCode));
   }
 
   /// Returns the region of the valid international number [text], e.g.
@@ -101,12 +103,35 @@ abstract final class PhoneNumberUtil {
   /// [input] is either national digits or `+` followed by the calling code
   /// and digits.
   static String formatAsYouType(String input, String isoCode) {
-    final formatter = _util.getAsYouTypeFormatter(isoCode);
+    final formatter = _util.getAsYouTypeFormatter(_numberingRegion(isoCode));
     String result = '';
     for (int i = 0; i < input.length; i++) {
       result = formatter.inputDigit(input[i]);
     }
     return result;
+  }
+
+  static final Set<String> _supportedRegions = _util.supportedRegions.toSet();
+
+  /// Returns the region whose numbering plan [isoCode] uses.
+  ///
+  /// libphonenumber has no data of its own for a few territories, such as
+  /// Antarctica (`AQ`), Bouvet Island (`BV`) or Pitcairn (`PN`). Their
+  /// numbers belong to the main region of their dial code instead, e.g.
+  /// Norway for Bouvet Island. Every other [isoCode] is returned as is.
+  static String _numberingRegion(String isoCode) {
+    if (_supportedRegions.contains(isoCode)) {
+      return isoCode;
+    }
+    final dialCode = Countries.byIsoCode(isoCode)?.dialCode;
+    final callingCode = dialCode == null
+        ? null
+        : int.tryParse(dialCode.substring(1));
+    if (callingCode == null) {
+      return isoCode;
+    }
+    final region = _util.getRegionCodeForCountryCode(callingCode);
+    return _supportedRegions.contains(region) ? region : isoCode;
   }
 
   static p.PhoneNumber? _parse(String text, String isoCode) {

@@ -14,9 +14,13 @@ final class Country {
   final String name;
 
   /// The ISO 3166-1 alpha-2 code, e.g. `PS`.
+  ///
+  /// Ascension Island (`AC`) and Tristan da Cunha (`TA`) use codes that ISO
+  /// 3166-1 exceptionally reserves for them.
   final String alpha2Code;
 
-  /// The ISO 3166-1 alpha-3 code, e.g. `PSE`.
+  /// The ISO 3166-1 alpha-3 code, e.g. `PSE`, or the exceptionally reserved
+  /// `ASC` and `TAA` for Ascension Island and Tristan da Cunha.
   final String alpha3Code;
 
   /// The dial code, e.g. `+970`.
