@@ -1,5 +1,24 @@
 # Changelog
 
+## 2.0.0
+
+### Breaking changes
+
+- The widgets are built with [material_ui](https://pub.dev/packages/material_ui)
+  instead of `package:flutter/material.dart`, which is deprecated since
+  Flutter 3.47. `InternationalPhoneNumberInput.decoration` and
+  `SelectorConfig.searchDecoration` take the `InputDecoration` of
+  `material_ui`, and the input needs a `MaterialApp` and `Scaffold` from
+  `material_ui` to find its theme and `Material`.
+
+  To migrate, run `dart fix --apply --code=migrate_design_widgets` in your
+  app. It adds `material_ui` and changes the imports of
+  `package:flutter/material.dart` to `package:material_ui/material_ui.dart`.
+  Apps that keep `package:flutter/material.dart` can stay on 1.1.0.
+
+- Requires Flutter 3.44 or newer and Dart 3.12 or newer, the minimum of
+  `material_ui` 1.2.0. Version 1.1.0 required Dart 3.13 (Flutter 3.47).
+
 ## 1.1.0
 
 ### Features

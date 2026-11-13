@@ -45,7 +45,8 @@ The screenshots come from the [example app](example/lib/main.dart).
 - **Form integration** with `validator`, `onSaved` and `autovalidateMode`.
 - **251 countries and territories**, with image or emoji flags.
 - **Pure Dart**, so it runs on every platform Flutter supports. It depends
-  only on Flutter and `dlibphonenumber`.
+  only on Flutter, [material_ui](https://pub.dev/packages/material_ui) and
+  `dlibphonenumber`.
 
 ## Installation
 
@@ -54,7 +55,25 @@ flutter pub add smart_phone_input
 ```
 
 ```dart
+import 'package:material_ui/material_ui.dart';
 import 'package:smart_phone_input/smart_phone_input.dart';
+```
+
+### Which version to use
+
+| Your app uses | Use | Needs |
+|---|---|---|
+| `package:material_ui/material_ui.dart` | `smart_phone_input: ^2.0.0` | Flutter 3.44 or newer |
+| `package:flutter/material.dart` | `smart_phone_input: ^1.1.0` | Flutter 3.47 or newer |
+
+Since 2.0.0 the widgets are built with
+[material_ui](https://pub.dev/packages/material_ui), the Material library
+that moved out of the Flutter SDK. Its `InputDecoration`, `ThemeData` and
+`MaterialApp` are other types than those of `package:flutter/material.dart`,
+so your app must use `material_ui` too. To move your app to it, run:
+
+```sh
+dart fix --apply --code=migrate_design_widgets
 ```
 
 ## Usage

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart' show listEquals;
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../formatters/arabic_to_english_digits_formatter.dart';
 import '../formatters/as_you_type_formatter.dart';
@@ -202,6 +202,7 @@ final class InternationalPhoneNumberInput extends StatefulWidget {
 final class _InternationalPhoneNumberInputState
     extends State<InternationalPhoneNumberInput> {
   TextEditingController? _ownController;
+
   TextEditingController get _controller =>
       widget.controller ?? (_ownController ??= TextEditingController());
 

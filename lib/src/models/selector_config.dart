@@ -1,7 +1,7 @@
 /// @docImport '../widgets/international_phone_number_input.dart';
 library;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'country.dart';
 

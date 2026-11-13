@@ -3,12 +3,13 @@ description: Example app for the smart_phone_input package.
 publish_to: none
 
 environment:
-  sdk: ^3.13.0
+  sdk: ^3.12.0
 
 dependencies:
   flutter:
     sdk: flutter
 
+  material_ui: ^1.11.0
   smart_phone_input:
     path: ../
 

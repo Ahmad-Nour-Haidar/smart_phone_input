@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:smart_phone_input/smart_phone_input.dart';
 
 void main() => runApp(const ExampleApp());

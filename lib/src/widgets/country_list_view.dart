@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../formatters/arabic_to_english_digits_formatter.dart';
 import '../models/country.dart';

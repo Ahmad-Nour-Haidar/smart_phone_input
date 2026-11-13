@@ -81,8 +81,9 @@ final class AsYouTypeFormatter extends TextInputFormatter {
     final cursor = newValue.selection.isValid
         ? newValue.selection.end.clamp(0, newValue.text.length)
         : newValue.text.length;
-    int digitsBeforeCursor = _digitsOf(newValue.text.substring(0, cursor))
-        .length;
+    int digitsBeforeCursor = _digitsOf(
+      newValue.text.substring(0, cursor),
+    ).length;
 
     // Backspace over a separator removes nothing that formatting would not
     // add straight back, so remove the digit before it instead.
