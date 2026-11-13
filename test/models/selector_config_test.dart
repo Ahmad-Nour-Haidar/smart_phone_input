@@ -31,9 +31,8 @@ void main() {
       throwsAssertionError,
     );
     expect(
-      const SelectorConfig(
-        dropdownMaxHeightFactor: null,
-      ).dropdownMaxHeightFactor,
+      const SelectorConfig(dropdownMaxHeightFactor: null)
+          .dropdownMaxHeightFactor,
       isNull,
     );
   });

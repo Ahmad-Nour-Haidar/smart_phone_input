@@ -40,9 +40,8 @@ void main() {
       expect(of(const Locale('zh', 'CN')).hint, '电话号码');
       expect(of(const Locale('zh', 'TW')).hint, '電話號碼');
       expect(
-        of(
-          const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
-        ).hint,
+        of(const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'))
+            .hint,
         '電話號碼',
       );
     });

@@ -63,7 +63,8 @@ import 'package:smart_phone_input/smart_phone_input.dart';
 
 | Your app uses | Use | Needs |
 |---|---|---|
-| `package:material_ui/material_ui.dart` | `smart_phone_input: ^2.0.0` | Flutter 3.44 or newer |
+| `package:material_ui/material_ui.dart` | `smart_phone_input: ^2.1.0` | Flutter 3.47 or newer |
+| `package:material_ui/material_ui.dart` on Flutter 3.44 to 3.46 | `smart_phone_input: 2.0.0` | Flutter 3.44 or newer |
 | `package:flutter/material.dart` | `smart_phone_input: ^1.1.0` | Flutter 3.47 or newer |
 
 Since 2.0.0 the widgets are built with

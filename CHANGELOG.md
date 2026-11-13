@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.0
+
+- Requires Flutter 3.47 or newer and Dart 3.13 or newer, with `material_ui`
+  1.4.0 or newer. Apps on Flutter 3.44 to 3.46 keep getting 2.0.0.
+
 ## 2.0.0
 
 ### Breaking changes

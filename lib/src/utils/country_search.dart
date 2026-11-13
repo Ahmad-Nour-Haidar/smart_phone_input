@@ -80,9 +80,9 @@ Iterable<String> _words(String name) sync* {
 /// Returns [text] lowercased, with ASCII digits, without accents and Arabic
 /// diacritics, and with Arabic letter variants unified, for comparing names.
 String normalizeForSearch(String text) {
-  final converted = ArabicToEnglishDigitsFormatter.convert(
-    text,
-  ).toLowerCase().replaceAll(_arabicMarks, '');
+  final converted = ArabicToEnglishDigitsFormatter.convert(text)
+      .toLowerCase()
+      .replaceAll(_arabicMarks, '');
   final buffer = StringBuffer();
   for (final rune in converted.runes) {
     final char = String.fromCharCode(rune);
